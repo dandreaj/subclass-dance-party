@@ -4,14 +4,23 @@ body, html{
 body{
   margin: 0px;
   background-color:#444;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+
+.title, .addDancerButton, .addFishButton, .lineUpButton, .formationButton{
   padding:5px 12px;
   float:right;
+}
+.fishifyButton, .dotButton{
+  padding:5px 12px;
+  float:left;
 }
 .topbar{
   height:32px;
@@ -22,6 +31,12 @@ body, a:link, a:visited, a:active{
 }
 .dancer{
   border:10px solid red;
+  border-radius:10px;
+  position:absolute;
+}
+
+.fish{
+  border:0px
   border-radius:10px;
   position:absolute;
 }
