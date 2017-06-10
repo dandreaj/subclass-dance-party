@@ -12,24 +12,22 @@ var makeDancer = function(top, left, timeBetweenSteps) {
 };
 
  makeDancer.prototype.step = function() {
-    // the basic dancer doesn't do anything interesting at all on each step,
-    // it just schedules the next step
-    setTimeout(this.step.bind(this), this.timeBetweenSteps);
+  // the basic dancer doesn't do anything interesting at all on each step,
+  // it just schedules the next step
+  setTimeout(this.step.bind(this), this.timeBetweenSteps);
 
-    if(window.dancers){
-      for (var i = 0 ; i < window.dancers.length ; i++) {
-        if (dancers[i].dancerType !== this.dancerType) {
-          if (Math.abs(dancers[i].left - this.left) < 20) {
-            if (Math.abs(dancers[i].top - this.top) < 20) {
-              this.bumpDancer();
-            }
+  if(window.dancers){
+    for (var i = 0 ; i < window.dancers.length ; i++) {
+      if (dancers[i].dancerType !== this.dancerType) {
+        if (Math.abs(dancers[i].left - this.left) < 20) {
+          if (Math.abs(dancers[i].top - this.top) < 20) {
+            this.bumpDancer();
           }
         }
       }
     }
-
-
-  };
+  }
+};
 
 makeDancer.prototype.setPosition = function(top, left) {
   // Use css top and left properties to position our <span> tag
@@ -42,6 +40,11 @@ makeDancer.prototype.setPosition = function(top, left) {
   };
 
 makeDancer.prototype.bumpDancer = function(){
-  var randomColor = Math.floor(Math.random()*16777215).toString(16);
-  this.$node.css({"border-color":"#"+randomColor});
+  this.$node.css("opacity",".5");
+  // var randomColor = Math.floor(Math.random()*16777215).toString(16);
+  // this.$node.css({"border-color":"#"+randomColor});
+};
+
+makeDancer.prototype.setImage = function(image){
+  this.$node.find('img').attr("src", image);
 };

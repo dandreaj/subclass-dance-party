@@ -19,7 +19,7 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
 
     $('.dancer').mouseover(function(){
-      $(this).css({"border": "30px solid white", "border-radius":"30px"});
+      $(this).css({"opacity": "1"});
     });
   });
 
@@ -30,43 +30,6 @@ $(document).ready(function() {
   });
 
 //-----------------------------------------
-
-  $('.addFishButton').on('click', function(event) {
-    var fishMakerFunctionName = $(this).data('fish-maker-function-name');
-    var fishMakerFunction = window[fishMakerFunctionName];
-    var fish = new fishMakerFunction(
-      ($("body").height()-100) * Math.random(),
-      ($("body").width()-100) * Math.random(),
-      Math.random() * 1000
-    );
-    fishies.push(fish);
-    $('body').append(fish.$node);
-  });
-
-  $('.fishifyButton').on('click', function(event) {
-    $('body').find('.addDancerButton').toggle();
-    $('body').find('.addFishButton').toggle();
-    $('body').find('.fishifyButton').toggle();
-    $('body').find('.formationButton').toggle();
-    $('body').find('.dotButton').toggle();
-    $('body').find('.lineUpButton').toggle();
-    $('body').css('background-image','url("background-ocean.jpg")');
-    $('body').find('.dancer').remove();
-    window.dancers = [];
-
-  });
-
-  $('.dotButton').on('click', function(event) {
-    $('body').find('.addDancerButton').toggle();
-    $('body').find('.addFishButton').toggle();
-    $('body').find('.fishifyButton').toggle();
-    $('body').find('.dotButton').toggle();
-    $('body').find('.lineUpButton').toggle();
-    $('body').find('.formationButton').toggle();
-    $('body').css('background-image','none');
-    $('body').find('.fish').remove();
-    window.fishies = [];
-  });
 
   $('.formationButton').on('click', function(event) {
     for (var i = 0 ; i < fishies.length ; i++){
